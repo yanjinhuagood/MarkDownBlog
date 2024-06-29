@@ -97,12 +97,13 @@ namespace WpfTextOrPasswordBox
                 {
                     passwordBuilder.Remove(caretIndex, Math.Abs(lengthDifference));
                 }
-                previousText = Text;
+                
                 var maskedText = CreateMaskedTextWithLineBreaks(passwordBuilder.ToString());
                 TextChanged -= PasswordTextBox_TextChanged;
                 Text = maskedText;
                 TextChanged += PasswordTextBox_TextChanged;
             }
+            previousText = Text;
             CaretIndex = caretIndex;
             PlainText = passwordBuilder.ToString();
             isUpdating = false;
