@@ -33,6 +33,8 @@
 
 1）`MultiLinePasswordBox.cs` 代码如下：
 ~~~c#
+using System;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -87,6 +89,7 @@ namespace WpfTextOrPasswordBox
             }
             else
             {
+                var s = passwordBuilder.Length;
                 int lengthDifference = input.Length - previousText.Length;
                 if (lengthDifference > 0)
                 {
@@ -96,8 +99,12 @@ namespace WpfTextOrPasswordBox
                 else if (lengthDifference < 0)
                 {
                     passwordBuilder.Remove(caretIndex, Math.Abs(lengthDifference));
+                    if (passwordBuilder[caretIndex - 1].ToString() != input)
+                    {
+                        var index = passwordBuilder.ToString().IndexOf(passwordBuilder[caretIndex - 1]);
+                        passwordBuilder.Replace(passwordBuilder[caretIndex - 1], input.Last());
+                    }
                 }
-                
                 var maskedText = CreateMaskedTextWithLineBreaks(passwordBuilder.ToString());
                 TextChanged -= PasswordTextBox_TextChanged;
                 Text = maskedText;
@@ -117,12 +124,13 @@ namespace WpfTextOrPasswordBox
                 if (c == '\r' || c == '\n')
                     maskedText.Append(c);
                 else
-					maskedText.Append(PasswordChar.ToString());
+                    maskedText.Append(PasswordChar.ToString());
             }
             return maskedText.ToString();
         }
     }
 }
+
 ~~~~
 2）`MultiLinePasswordBoxSample.xaml` 代码如下：
 ~~~xml
