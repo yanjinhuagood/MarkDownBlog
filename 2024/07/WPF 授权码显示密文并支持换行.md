@@ -83,6 +83,7 @@ namespace WpfTextOrPasswordBox
             isUpdating = true;
             var caretIndex = CaretIndex;
             var input = Text;
+            Debug.WriteLine(input);
             if (string.IsNullOrWhiteSpace(Text))
             {
                 passwordBuilder.Clear();
@@ -96,15 +97,33 @@ namespace WpfTextOrPasswordBox
                     var newText = input.Substring(caretIndex - lengthDifference, lengthDifference);
                     passwordBuilder.Insert(caretIndex - lengthDifference, newText);
                 }
+                else if (lengthDifference == 0)
+                {
+                    var newText = input.Substring(SelectionStart - 1, 1);
+                    if (CaretIndex < passwordBuilder.Length)
+                    {
+                        passwordBuilder.Replace(passwordBuilder[SelectionStart - 1], newText.Last());
+                    }
+                    else
+                    {
+                        passwordBuilder.Replace(passwordBuilder.ToString().Last(), input.Last());
+                    }
+
+                }
                 else if (lengthDifference < 0)
                 {
-                    passwordBuilder.Remove(caretIndex, Math.Abs(lengthDifference));
-                    if (passwordBuilder[caretIndex - 1].ToString() != input)
+                    if (CaretIndex == passwordBuilder.Length)
                     {
-                        var index = passwordBuilder.ToString().IndexOf(passwordBuilder[caretIndex - 1]);
-                        passwordBuilder.Replace(passwordBuilder[caretIndex - 1], input.Last());
+                        passwordBuilder.Remove(passwordBuilder.Length - 1, 1);
+                    }
+                    else
+                    {
+                        var newText = input.Substring(SelectionStart - 1, 1);
+                        passwordBuilder.Remove(caretIndex - 1, Math.Abs(lengthDifference) + 1);
+                        passwordBuilder.Insert(caretIndex - 1, newText);
                     }
                 }
+
                 var maskedText = CreateMaskedTextWithLineBreaks(passwordBuilder.ToString());
                 TextChanged -= PasswordTextBox_TextChanged;
                 Text = maskedText;
@@ -130,7 +149,6 @@ namespace WpfTextOrPasswordBox
         }
     }
 }
-
 ~~~~
 2）`MultiLinePasswordBoxSample.xaml` 代码如下：
 ~~~xml
