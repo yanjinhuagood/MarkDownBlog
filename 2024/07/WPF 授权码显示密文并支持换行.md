@@ -83,7 +83,6 @@ namespace WpfTextOrPasswordBox
             isUpdating = true;
             var caretIndex = CaretIndex;
             var input = Text;
-            Debug.WriteLine(input);
             if (string.IsNullOrWhiteSpace(Text))
             {
                 passwordBuilder.Clear();
