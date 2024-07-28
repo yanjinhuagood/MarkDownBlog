@@ -185,5 +185,5 @@ namespace WpfTextOrPasswordBox
 ![MultiLinePasswordBoxNew](https://github.com/yanjinhuagood/MarkDown/assets/23089734/fa71e176-c3de-4e96-af2a-b3665dc27dc5)
 
 
-[如果你对此有任何更好的想法或建议，我们将非常感激并乐于听取。](https://github.com/WPFDevelopersOrg/WPFDevelopers)
+[如果你对此有任何更好的想法或建议，我们将非常感激并乐于听取。](https://github.com/WPFDevelopersOrg/WPFDevelopers/issues/new)
 
