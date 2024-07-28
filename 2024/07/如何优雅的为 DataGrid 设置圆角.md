@@ -307,5 +307,5 @@ namespace WPFDevelopers.Helpers
 当已经成功实现了 `DataGrid` 控件后，实现 `TreeView`、`TabControl` 等其他控件也可以按照类似的方法。
 文中 `XAML` 中使用 [WPFDevelopers](https://www.nuget.org/packages/WPFDevelopers/ "WPFDevelopers") 库，如果直接拷贝使用，需要确保将相关的资源和控件进行正确的替换和配置。
 
-[如果你对此有任何更好的想法或建议，我们将非常感激并乐于听取。](https://github.com/WPFDevelopersOrg/WPFDevelopers "如果你对此有任何更好的想法或建议，我们将非常感激并乐于听取。")
+[如果你对此有任何更好的想法或建议，我们将非常感激并乐于听取。](https://github.com/WPFDevelopersOrg/WPFDevelopers/issues/new "如果你对此有任何更好的想法或建议，我们将非常感激并乐于听取。")
 
