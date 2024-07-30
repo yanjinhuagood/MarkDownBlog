@@ -59,6 +59,12 @@
 
 
 1）`WDBorder.cs` 代码如下：
+- `ContentClip` ：类型为 `Geometry`，用于定义控件内容的裁剪区域。
+- `CalculateContentClip` 方法：
+  - 计算返回一个 `Geometry` 对象，作为内容裁剪的区域。
+  - 获取边框 `BorderThickness` 和圆角 `CornerRadius`，计算区域的宽和高。
+  - 如果宽和高大于 `0`，则创建一个 `Rect` 显示区域。
+  - 使用 `GeometryHelper` 类的静态方法生成一个 `Geometry` ，根据 `Rect` 和 `CornerRadius` 来填充 `StreamGeometry`，最后将 `StreamGeometry` 冻结，并返回 `StreamGeometry`。
 ~~~c#
 using System.Windows;
 using System.Windows.Controls;
@@ -119,6 +125,7 @@ namespace WPFDevelopers.Controls
 
 ~~~~
 2）`GeometryHelper.cs` 代码如下：
+- 以下代码来源于官方 [Border](https://referencesource.microsoft.com/#PresentationFramework/src/Framework/System/Windows/Controls/Border.cs,c3528d1bcccc5443 "Border") 的源码
 ~~~C#
 using System.Windows.Media;
 using System.Windows;
