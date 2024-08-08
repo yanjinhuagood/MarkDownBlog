@@ -59,12 +59,6 @@ namespace WPFTableGrid
             get { return (int)GetValue(ColumnSpanProperty); }
             set { SetValue(ColumnSpanProperty, value); }
         }
-
-        static Td()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(Td),
-                new FrameworkPropertyMetadata(typeof(Td)));
-        }
     }
 }
 ~~~
