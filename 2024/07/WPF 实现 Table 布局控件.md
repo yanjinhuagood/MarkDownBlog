@@ -143,6 +143,7 @@ namespace WPFTableGrid
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             UpdateControl();
+            Loaded -= OnLoaded;
         }
 
         private void UpdateControl()
@@ -202,7 +203,6 @@ namespace WPFTableGrid
                             SetZIndex(cell, _zIndex);
                             _zIndex++;
                         }
-
                         cIndex++;
                     }
                 }
@@ -210,7 +210,6 @@ namespace WPFTableGrid
         }
     }
 }
-
 ~~~
 四、新建 `TableExample.xaml` 示例代码如下：
 ~~~xml
