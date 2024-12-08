@@ -1,4 +1,4 @@
-<span style="display:block;text-align:center;">  **如何优雅的为 DataGrid 设置圆角**</span> 
+<span style="display:block;text-align:center;">  **如何优雅地为 DataGrid 设置圆角**</span> 
 > 控件名：WDBorder
 >
 > 作 者：WPFDevelopersOrg - **驚鏵**
@@ -9,7 +9,7 @@
 - 框架支持`.NET4 至 .NET8`；
 - `Visual Studio 2022`;
 
-如何优雅的为 DataGrid 设置圆角？
+如何优雅地为 DataGrid 设置圆角？
 
 一般情况都会通过重新样式，最外层嵌套 `Border` 设置 `CornerRadius` 但是这样设置后会发现 `DataGrid` 还是无法显示四周的圆角。
 ~~~xml
