@@ -148,6 +148,7 @@ protected override void OnSelectionChanged(SelectionChangedEventArgs e)
 ~~~xml
 <controls:Theme Margin="0,10" />
 ~~~
+![theme](https://github.com/user-attachments/assets/e9bb8a64-ca46-4c9c-9fdd-25e8ef6e63be)
 
 [GitHub 源码地址](https://github.com/WPFDevelopersOrg/WPFDevelopers/tree/dev/src/WPFDevelopers.Samples.Shared/Controls/Theme "GitHub 源码地址")
 
